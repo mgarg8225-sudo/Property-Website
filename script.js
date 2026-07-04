@@ -46,17 +46,14 @@ if (forms.length > 1) {
     forms[1].addEventListener("submit", (e) => {
         e.preventDefault();
 
-        const name = forms[1].querySelector(
-            'input[type="text"]'
-        ).value;
-
-        alert(`Thank you ${name}! We will contact you soon.`);
+        // Run the Whatsapp function instead of the older alert 
+         sendToWhatsapp();
     });
 }
 
 // Welcome Message
 window.addEventListener("load", () => {
-    console.log("100Acres Clone Loaded Successfully!");
+    console.log("Property Guys Estate Clone Loaded Successfully!");
 });
 
 function sendToWhatsapp() {
