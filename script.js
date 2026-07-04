@@ -58,3 +58,19 @@ if (forms.length > 1) {
 window.addEventListener("load", () => {
     console.log("100Acres Clone Loaded Successfully!");
 });
+
+function sendToWhatsapp() {
+    let name = document.getElementById('callbackName').value.trim();
+    let phone = document.getElementById('callbackPhone').value.trim();
+    
+    if (name === "" || phone === "") {
+        alert("Please enter both your name and phone number.");
+        return;
+    }
+
+    let myWhatsAppNumber = "919518208840"; 
+    let message = `Hi Property Guys Estate, I would like an instant callback.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}`;
+    let whatsappUrl = `https://wa.me/${myWhatsAppNumber}?text=${message}`;
+    
+    window.open(whatsappUrl, '_blank');
+}
