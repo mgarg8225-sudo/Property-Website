@@ -1,27 +1,17 @@
-// Navbar link click message
-const navLinks = document.querySelectorAll("nav a");
+//contact submission
+const contactForm = document.querySelector("form");
 
-navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        alert(`You clicked on ${link.textContent}`);
-    });
+contactForm.addEventListener("submit", (e) => {
+
+    const name = contactForm.querySelector("input[type='text']").value;
+    const phone = contactForm.querySelector('input[type="tel"]').value;
+
+    alert(`Thank you ${name}! We'll contact you at ${phone} soon.`);
 });
 
-// Search Form
-const searchForm = document.querySelector("form");
 
-searchForm.addEventListener("submit", (e) => {
-    e.preventDefault();
 
-    const searchInput = searchForm.querySelector("input");
 
-    if (searchInput.value.trim() === "") {
-        alert("Please enter a location");
-    } else {
-        alert(`Searching properties in ${searchInput.value}`);
-    }
-});
 
 // Property Card Hover Effect
 const propertyCards = document.querySelectorAll(
@@ -39,35 +29,9 @@ propertyCards.forEach(card => {
     });
 });
 
-// Contact Form
-const forms = document.querySelectorAll("form");
 
-if (forms.length > 1) {
-    forms[1].addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        // Run the Whatsapp function instead of the older alert 
-         sendToWhatsapp();
-    });
-}
 
 // Welcome Message
 window.addEventListener("load", () => {
-    console.log("Property Guys Estate Clone Loaded Successfully!");
+    console.log("property guys estate Loaded Successfully!");
 });
-
-function sendToWhatsapp() {
-    let name = document.getElementById('callbackName').value.trim();
-    let phone = document.getElementById('callbackPhone').value.trim();
-    
-    if (name === "" || phone === "") {
-        alert("Please enter both your name and phone number.");
-        return;
-    }
-
-    let myWhatsAppNumber = "919518208840"; 
-    let message = `Hi Property Guys Estate, I would like an instant callback.%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}`;
-    let whatsappUrl = `https://wa.me/${myWhatsAppNumber}?text=${message}`;
-    
-    window.open(whatsappUrl, '_blank');
-}
